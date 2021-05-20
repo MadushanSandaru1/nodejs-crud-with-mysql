@@ -9,35 +9,46 @@
 <body>
 
 <div class="container pt-5">
-  <a href="/logout">Logout</a>
+  <a href="/addstudent" class="btn btn-success">Add</a>
+  <a href="/logout" class="btn btn-warning">Logout</a>
   <h2>Student List</h2>
   <table class="table">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
+        <th>ID</th>
+        <th>Name</th>
         <th>Email</th>
+        <th>Phone</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
+      {{#each result}}
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td>{{this.id}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <td>{{this.phone}}</td>
+        <td><button class="btn btn-danger delete-btn">Delete</button></td>
       </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+      {{/each}}
     </tbody>
   </table>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $('.delete-btn').click(function(){
+    var row_id = $(this).parent().parent().children().first().html();
 
+    $.ajax({
+      type:'post',
+      url:'/deletestudent',
+      data:{id:row_id},
+      success:function(data){
+        
+      }
+    });
+  });
+</script>
 </body>
 </html>
