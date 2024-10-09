@@ -116,8 +116,8 @@ app.listen('3000', function(){
         if(err){
             console.log("Error connecting database...");  
         } else {
-            console.log("Database is connected...");  
+            console.log("Database is connected...!");  
         }
     });
-    console.log('Server is running on port 3000...');
+    console.log('Server is running on port 8000...');
 });
