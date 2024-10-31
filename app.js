@@ -119,5 +119,5 @@ app.listen('3000', function(){
             console.log("Database is connected...!");  
         }
     });
-    console.log('Server is running on port 8000...');
+    console.log('Server is running on port 50001...');
 });
